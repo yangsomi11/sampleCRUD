@@ -1,7 +1,7 @@
 package com.bonobono.web03.vo;
 
 
-public class sample {
+public class Sample {
 	private int sampleId;//sample.sample_id (클레스안에 컬럼)
 	private String sampleName; //sample클레스내에  sample_name컬럼
 	
