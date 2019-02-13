@@ -23,6 +23,7 @@ public class SampleService {
 		
 		return null;	
 	}
+	
 	public int addSample(String sampleName) {
 		int result = 0;
 		result = sampleMapper.insertSample(sampleName);

@@ -28,6 +28,7 @@
 	
 	<delete id="deleteSample"
 			parameterType="com.bonobono.web03.vo.Sample">
+			DELETE FROM sample WHERE sample_id=#{sampleId}
 	</delete>
 	
 	<update id="updateSample"

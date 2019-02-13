@@ -19,6 +19,7 @@ public class SampleController {
 	// 1.  입력폼
 	@GetMapping("/addSample")  //get방식으로 화면을 보여줄때 @GetMapping 사용 
 	public String addSample() {		
+		
 		return "addSample";  // forword방식으로 화면을 보여준다. view의 이름은 templeate폴더에 addSample.html	
 	}
 	
@@ -39,9 +40,13 @@ public class SampleController {
 		return "sampleList";  //forword 방식
 	}
 	
-	
-	
 	// 4. 삭제 액션
+	@GetMapping("/removeSample")
+	public String removeSample(
+			@RequestParam(value="sample")Sample sample) {
+				sampleService.removeSample(sample);
+		return "redirect:/sampleList";
+	}
 	
 	// 5. 수정 폼
 
