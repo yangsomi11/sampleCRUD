@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org"> 
+
+<div th:each="s : ${sample}">
+<form action = "${request.getContextPath()}/updateSample" method="post">
+	
+	<input type="text" name="sampleId" th:value="${s.sampleId}" readonly>
+	<input type="text" name="sampleName" th:value="${s.sampleName}">
+	<input type="submit" value="이름수정">
+</form>
+</div> 
+</html>
