@@ -24,28 +24,32 @@ public class SampleController {
 	}
 	
 	// 2.  입력 액션
-	@PostMapping("/addSampleAction") //Post 방식으로 받는다.
+	//Post 방식으로 받는다.
+	@PostMapping("/addSampleAction") 
 	public String addSample(
-			@RequestParam(value="sampleName")String sampleName) {
 			//String sampleName = request.get.Parameter(); 
-				sampleService.addSample(sampleName);  //sampleService에 가서 addSample메서드 실행시 sampleName값을 가지고 호출
+			@RequestParam(value="sampleName")String sampleName) {
+				//sampleService에 가서 addSample메서드 실행시 sampleName값을 가지고 호출
+				sampleService.addSample(sampleName); 
 		return "redirect:/sampleList";  //sampleList로 redirect해서 화면 보여준다.
 	}
-	
+		
 	// 3. 목록
-	@GetMapping("/sampleList")  //Get방식으로 sampleList화면을 보여준다.
+	//Get방식으로 sampleList화면을 보여준다.
+	@GetMapping("/sampleList")  
 	public String sampleList(Model model) {  
 		List<Sample> list = sampleService.getSampleList();
 		model.addAttribute("list", list);  //request.setAttribute 
-		return "sampleList";  //forword 방식
+		return "sampleList";  //getSampleList메서드의 리턴값을 forword 한다 
 	}
 	
 	// 4. 삭제 액션
 	@GetMapping("/removeSample")
 	public String removeSample(
-			@RequestParam(value="sample")Sample sample) {
-				sampleService.removeSample(sample);
-		return "redirect:/sampleList";
+			//삭제할 parameter값을 매개변수로 받아서 확인한다.
+			@RequestParam(value="")int sampleId) {
+				sampleService.removeSample(sampleId);
+		return "redirect:/sampleList";  //삭제 후 redirect해서 sampleList 화면을 보여준다.
 	}
 	
 	// 5. 수정 폼

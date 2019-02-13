@@ -12,6 +12,8 @@
 			<tr th:each="s : ${list}">
 				<td th:text= "${s.sampleId}"></td>
 				<td th:text= "${s.sampleName}"></td>
+				<td><a th:href="@{/removeSample(sampleId=${s.sampleId})}" th:text="삭제"></a></td>
+				<!-- <td><a th:href="@{'/removeSample' + '?sampleId=' + ${s.sampleId}}" >삭제</a></td> -->
 			</tr>
 		</table>
 	</body>
