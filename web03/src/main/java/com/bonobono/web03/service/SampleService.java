@@ -15,13 +15,12 @@ public class SampleService {
 	
 	public List<Sample> getSampleList(){  
 		List<Sample> list = sampleMapper.selectsampleList();
-		return list;
-		
+		return list;		
 	}
 
-	public List<Sample> getSampleOne(){
-		
-		return null;	
+	public List<Sample> getSampleOne(int sampleId){
+		List<Sample> listOne = sampleMapper.selectSampleOne(sampleId);
+		return listOne;	
 	}
 	
 	public int addSample(String sampleName) {
@@ -37,8 +36,9 @@ public class SampleService {
 		return result;
 	}
 	
-	public int modifySample(Sample sample) {
-		
-		return 0;
+	public int modifySample(int sampleId, String sampleName) {
+		int result = 0;
+		result = sampleMapper.updateSample(sampleId, sampleName);
+		return result;
 	}
 }
