@@ -14,7 +14,12 @@
 	</select>
 	
 	<select id="selectSampleOne"
-			resultType="com.bonobono.web03.vo.Sample">
+			resultType="com.bonobono.web03.vo.Sample" parameterType="com.bonobono.web03.vo.Sample">
+			SELECT
+ 				sample_id as sampleId,
+ 				sample_name as sampleName
+ 			FROM sample 
+ 			WHERE sample_id = #{sampleId}
 	</select>
 <!--  -->	
 <!-- 입력받은 sampleName값을 테이블에 컬럼을 추가하는 쿼리 -->
